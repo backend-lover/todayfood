@@ -33,7 +33,7 @@ app.listen(port, () => {
     console.log("SERVER started : ", port);
 })
 
-function readCSV(filename, callback) {
+function readCSV_Pro(filename, callback) {
     const results = [];
     fs.createReadStream(filename)
         .pipe(csv())
@@ -60,7 +60,7 @@ app.get("/request/:date", (req, res) => {
     readCSV('info.csv', function (data) {
 
         const mode = req.query.mode;
-
+        const dbc = req.requert.mode;
         if (!data) {
             console.log("CSV 파일이 없습니다. 수동으로 설정해주세요.");
             return;
